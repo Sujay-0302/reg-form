@@ -18,7 +18,7 @@
     header {
       background: linear-gradient(120deg, #228b22, #32cd32);
       color: white;
-      padding: 40px 20px 60px;
+      padding: 80px 20px 60px; /* added top padding for logos */
       text-align: center;
       position: relative;
       animation: fadeInDown 1.5s ease;
@@ -27,7 +27,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     header h1 {
-      margin: 0;
+      margin: 10px 0 0 0;
       font-size: 2.4rem;
       letter-spacing: 1px;
       animation: pulseText 2.5s infinite;
@@ -41,11 +41,12 @@
     .logos {
       position: absolute;
       top: 15px;
-      left: 20px;
-      right: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     .logos img {
       height: 65px;
@@ -55,6 +56,27 @@
     .logos img:hover {
       transform: rotate(5deg) scale(1.15);
       filter: drop-shadow(0 3px 6px rgba(0,0,0,0.25));
+    }
+
+    /* Mobile Fix for Overlap */
+    @media (max-width: 600px) {
+      .logos {
+        position: static;
+        transform: none;
+        margin-bottom: 15px;
+      }
+      .logos img {
+        height: 55px;
+      }
+      header {
+        padding: 30px 15px;
+      }
+      header h1 {
+        font-size: 1.6rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
     }
 
     /* Navigation Bar */
@@ -278,66 +300,3 @@
     </nav>
   </header>
 
-  <div class="container">
-    <div id="qr" class="qr-section">
-      <h2>📌 Scan to Register</h2>
-      <img src="REG_QR.png" alt="FX Yoga Club Registration QR Code">
-      <br>
-      <a href="https://forms.gle/RPDGFQSJ8JLNEvE36" target="_blank" class="join-btn">✨ Join Now ✨</a>
-    </div>
-
-    <div id="about" class="features">
-      <h2>✨ About FX Yoga Club</h2>
-      <ul>
-        <li><b>Club Name:</b> FX Yoga Club</li>
-        <li><b>Purpose & Objectives:</b> To promote physical fitness, mental well-being, and mindfulness among students through the practice of yoga.</li>
-        <li><b>Activities & Events:</b> Weekly yoga sessions, meditation workshops, stress-relief camps, and International Yoga Day celebrations.</li>
-        <li><b>Benefits of Joining:</b> Improve concentration, reduce stress, gain flexibility, build a positive lifestyle, and earn participation certificates.</li>
-        <li><b>Inclusivity:</b> Open for beginners as well as experienced practitioners – everyone is welcome.</li>
-        <li><b>Special Programs:</b> Guest lectures by yoga trainers, cultural integration of yoga, and awareness sessions on holistic health.</li>
-        <li><b>Collaborations:</b> Tie-ups with fitness experts, health professionals, and student wellness initiatives.</li>
-        <li><b>Future Plans:</b> Organize inter-college yoga competitions, publish wellness newsletters, and create a student-led yoga community network.</li>
-      </ul>
-    </div>
-
-    <div id="contact" class="enquiry-header">📢 For Further Enquiries, Contact</div>
-
-    <div class="contact-card">
-      <h3>📞 Faculty Incharge</h3>
-      <p><b>Mrs. J. Vijayalakshmi</b><br>(AP/AI&DS)</p>
-      <p>Contact: +91 70100 67291</p>
-      <div class="contact-btns">
-        <a href="tel:+917010067291">📲 Call Now</a>
-        <a href="https://wa.me/917010067291" target="_blank">💬 WhatsApp</a>
-      </div>
-    </div>
-
-    <div id="gallery" class="yoga-img">
-      <img src="Yoga Pose 1.jpg" alt="Yoga Pose 1">
-      <img src="Yoga Pose 2.webp" alt="Yoga Pose 2">
-      <img src="Yoga Pose 3.png" alt="Yoga Pose 3">
-    </div>
-  </div>
-
-  <footer>
-    <p>© 2025 FX Yoga Club | All Rights Reserved</p>
-  </footer>
-
-  <button onclick="topFunction()" id="topBtn" title="Go to top">⬆</button>
-
-  <script>
-    let topBtn = document.getElementById("topBtn");
-    window.onscroll = function() {
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        topBtn.style.display = "block";
-      } else {
-        topBtn.style.display = "none";
-      }
-    };
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-  </script>
-</body>
-</html>
